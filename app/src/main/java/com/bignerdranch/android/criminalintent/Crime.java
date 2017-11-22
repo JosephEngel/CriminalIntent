@@ -4,6 +4,9 @@ import java.util.UUID;
 
 /**
  * Created by joey on 11/20/17.
+ *
+ * Serves as our Model Layer for the Criminal Intent Application
+ *
  */
 
 public class Crime {
