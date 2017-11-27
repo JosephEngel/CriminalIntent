@@ -1,10 +1,17 @@
 package com.bignerdranch.android.criminalintent;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
-public class CrimeActivity extends FragmentActivity {
+/**
+ * Created by jengel on 11/27/2017.
+ */
+
+public abstract class SingleFragmentActivity extends FragmentActivity {
+
+    protected abstract Fragment createFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +22,7 @@ public class CrimeActivity extends FragmentActivity {
         android.support.v4.app.Fragment fragment = fm.findFragmentById(R.id.fragment_container);
 
         if (fragment == null) {
-            fragment = new CrimeFragment();
+            fragment = createFragment ();
             fm.beginTransaction()
                     .add(R.id.fragment_container, fragment)
                     .commit();
